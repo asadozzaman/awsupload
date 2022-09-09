@@ -55,7 +55,7 @@ ROOT_URLCONF = 'myproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'myproject/templates')],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,11 +118,19 @@ USE_TZ = True
 
 
 
-MEDIA_URL="/media/"
-MEDIA_ROOT=os.path.join(BASE_DIR,"media")
 
-STATIC_URL="/static/"
-STATIC_ROOT=os.path.join(BASE_DIR,"static")
+                                  
+STATIC_URL = '/static/'
+STATIC_ROOT = 'static'
+STATICFILES_DIRS = [
+    'myapp/static'
+]
+
+
+# Media File Config and Collect
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'		
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
